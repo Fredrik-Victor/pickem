@@ -10,11 +10,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>se.iths</groupId>
-    <artifactId>corkdork</artifactId>
+    <groupId>project.pickem</groupId>
+    <artifactId>pickem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>corkdork</name>
-    <description>corkdork</description>
+    <name>pickem</name>
+    <description>pickem</description>
 
     <properties>
         <java.version>11</java.version>
