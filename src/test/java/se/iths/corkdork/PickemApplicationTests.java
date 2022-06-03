@@ -1,4 +1,4 @@
-package com.example.pickem;
+package se.iths.corkdork;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
