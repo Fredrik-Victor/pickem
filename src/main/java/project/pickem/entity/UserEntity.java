@@ -15,20 +15,21 @@ public class UserEntity {
     private String username;
     private String password;
     private String email;
-
+    private Integer points;
     @ManyToOne(fetch = FetchType.EAGER)
     RoleEntity role;
 
     public UserEntity() {
     }
 
-    public UserEntity(String firstName, String lastName, String username, String password, String email, RoleEntity role) {
+    public UserEntity(String firstName, String lastName, String username, String password, String email, RoleEntity role, Integer points) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
         this.email = email;
         this.role = role;
+        this.points = points;
     }
 
     public Long getId() {
@@ -55,6 +56,15 @@ public class UserEntity {
 
     public UserEntity setUsername(String username) {
         this.username = username;
+        return this;
+    }
+
+    public int getPoints(int points){
+        return points;
+    }
+
+    public UserEntity setPoints(Integer points){
+        this.points = points;
         return this;
     }
 

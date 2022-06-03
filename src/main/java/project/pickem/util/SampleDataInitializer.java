@@ -8,11 +8,9 @@ import project.pickem.entity.RoleEntity;
 import project.pickem.entity.UserEntity;
 import project.pickem.repository.RoleRepository;
 import project.pickem.repository.UserRepository;
-import project.pickem.entity.*;
-import project.pickem.repository.*;
-
 import javax.transaction.Transactional;
 import java.util.List;
+
 @Component
 public class SampleDataInitializer implements ApplicationRunner {
 
@@ -40,7 +38,8 @@ public class SampleDataInitializer implements ApplicationRunner {
                 "User",
                 "password",
                 "user@corkdork.se",
-                userRole);
+                userRole,
+                123);
 
         UserEntity admin = new UserEntity(
                 "Test",
@@ -48,7 +47,8 @@ public class SampleDataInitializer implements ApplicationRunner {
                 "Admin",
                 "password",
                 "admin@corkdork.se",
-                adminRole);
+                adminRole,
+                123);
 
         this.roleRepository.saveAll(List.of(adminRole, userRole));
         this.userRepository.saveAll(List.of(admin, user));

@@ -24,15 +24,17 @@ public class User {
     @UniqueEmail
     @Email
     private String email;
+    private String points;
     private Role role;
 
-    public User(String firstName, String lastName, String username, String password, String email, Role role) {
+    public User(String firstName, String lastName, String username, String password, String email, Role role, String points) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
         this.email = email;
         this.role = role;
+        this.points = points;
     }
 
     public User(){
@@ -44,6 +46,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getPoints(){return points;}
+
+    public User setPoints(){
+        this.points = points;
+        return this;
     }
 
     public Long getId() {
