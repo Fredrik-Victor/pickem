@@ -1,0 +1,12 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 172463478899-0qsbcbhna4iutfgmri6kl2slnnbb5jpu.apps.googleusercontent.com
+            client-secret: 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
+        redirect-uri: http://localhost:8080/login/oauth2/code/google
+
+
+#      tokenInfoUri: https://{yourOktaDomain}.okta.com/oauth2/default/v1/introspect
