@@ -15,7 +15,6 @@ public class User {
     private String firstName;
     @NotBlank
     private String lastName;
-    @NotBlank
     private String password;
     @NotBlank
     @UniqueUser
