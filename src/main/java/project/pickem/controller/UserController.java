@@ -3,6 +3,7 @@ package project.pickem.controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import project.pickem.dto.User;
+import project.pickem.exception.BadRequestException;
 import project.pickem.exception.EntityNotFoundException;
 //import project.pickem.messaging.MessagePublisher;
 import project.pickem.service.UserService;
@@ -28,7 +29,7 @@ public class UserController {
     public ResponseEntity<User> createUser(@Validated @RequestBody User user, BindingResult errors) {
 
         if (errors.hasErrors())
-            throw new se.iths.corkdork.exception.BadRequestException("Invalid input", errors);
+            throw new BadRequestException("Invalid input", errors);
         User createdUser = userService.createUser(user);
 //        messagePublisher.sendMessage(createdUser.getUsername());
 
