@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("users")
 public class UserController {
 
@@ -26,8 +27,8 @@ public class UserController {
     @PostMapping("signup")
     public ResponseEntity<User> createUser(@Validated @RequestBody User user, BindingResult errors) {
 
-//        if (errors.hasErrors())
-//            throw new BadRequestException("Invalid input", errors);
+        if (errors.hasErrors())
+            throw new se.iths.corkdork.exception.BadRequestException("Invalid input", errors);
         User createdUser = userService.createUser(user);
 //        messagePublisher.sendMessage(createdUser.getUsername());
 
@@ -44,8 +45,6 @@ public class UserController {
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-
 
     @GetMapping("{id}")
     public ResponseEntity<User> findUserById(@PathVariable Long id) {
