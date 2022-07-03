@@ -2,7 +2,6 @@ package project.pickem.entity;
 
 
 import project.pickem.validator.UniqueEmail;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 
@@ -12,22 +11,22 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String fullName;
-    @UniqueEmail
-    @Email
     private String email;
     private String points;
+
     @ManyToOne(fetch = FetchType.EAGER)
     RoleEntity role;
+
+    public UserEntity() {
+    }
 
     public UserEntity(String fullName, String email, RoleEntity role, String points) {
         this.fullName = fullName;
         this.email = email;
         this.role = role;
         this.points = points;
-    }
-
-    public UserEntity() {
     }
 
     public Long getId() {

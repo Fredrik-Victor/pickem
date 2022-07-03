@@ -9,9 +9,9 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends CrudRepository<UserEntity, Long> {
-    UserEntity findByUsername(String username);
+    UserEntity findByFullName(String fullName);
 
-    boolean existsByUsername(String username);
+    boolean existsByFullName(String fullName);
 
     boolean existsByEmail(String email);
 
