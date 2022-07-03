@@ -1,7 +1,10 @@
 package project.pickem.entity;
 
 
+import project.pickem.validator.UniqueEmail;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 public class UserEntity {
@@ -9,27 +12,22 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private String firstName;
-    private String lastName;
-    private String username;
-    private String password;
+    private String fullName;
+    @UniqueEmail
+    @Email
     private String email;
-    private Integer points;
+    private String points;
     @ManyToOne(fetch = FetchType.EAGER)
     RoleEntity role;
 
-    public UserEntity() {
-    }
-
-    public UserEntity(String firstName, String lastName, String username, String password, String email, RoleEntity role, Integer points) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.password = password;
+    public UserEntity(String fullName, String email, RoleEntity role, String points) {
+        this.fullName = fullName;
         this.email = email;
         this.role = role;
         this.points = points;
+    }
+
+    public UserEntity() {
     }
 
     public Long getId() {
@@ -41,56 +39,12 @@ public class UserEntity {
         return this;
     }
 
-    public RoleEntity getRole() {
-        return role;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setRole(RoleEntity role) {
-        this.role = role;
-        role.addUser(this);
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public UserEntity setUsername(String username) {
-        this.username = username;
-        return this;
-    }
-
-    public int getPoints(int points){
-        return points;
-    }
-
-    public UserEntity setPoints(Integer points){
-        this.points = points;
-        return this;
-    }
-
-    public String getPassword() {return password;}
-
-    public UserEntity setPassword(String password) {
-        this.password = password;
-        return this;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public UserEntity setFirstName(String firstName) {
-        this.firstName = firstName;
-        return this;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public UserEntity setLastName(String lastName) {
-        this.lastName = lastName;
-        return this;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getEmail() {
@@ -102,4 +56,25 @@ public class UserEntity {
         return this;
     }
 
+    public int getPoints(int points) {
+        return points;
+    }
+
+    public UserEntity setPoints(String points) {
+        this.points = points;
+        return this;
+    }
+
+    public String getPoints() {
+        return points;
+    }
+
+    public RoleEntity getRole() {
+        return role;
+    }
+
+    public void setRole(RoleEntity role) {
+        this.role = role;
+        role.addUser(this);
+    }
 }

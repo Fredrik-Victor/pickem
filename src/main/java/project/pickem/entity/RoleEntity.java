@@ -55,4 +55,6 @@ public class RoleEntity {
     public Long getId() {
         return id;
     }
+
+
 }

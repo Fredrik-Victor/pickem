@@ -23,21 +23,6 @@ public class User {
     public User(){
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public String getPoints(){return points;}
-
-    public User setPoints(String points){
-        this.points = points;
-        return this;
-    }
-
     public Long getId() {
         return id;
     }
@@ -47,14 +32,12 @@ public class User {
         return this;
     }
 
-
-    public String getUsername() {
+    public String getFullName() {
         return fullName;
     }
 
-    public User setUsername(String fullName) {
+    public void setFullName(String fullName) {
         this.fullName = fullName;
-        return this;
     }
 
     public String getEmail() {
@@ -64,5 +47,20 @@ public class User {
     public User setEmail(String email) {
         this.email = email;
         return this;
+    }
+
+    public String getPoints(){return points;}
+
+    public User setPoints(String points){
+        this.points = points;
+        return this;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
