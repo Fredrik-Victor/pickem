@@ -1,36 +1,20 @@
 package project.pickem.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import project.pickem.validator.UniqueEmail;
-import project.pickem.validator.UniqueUser;
-
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 
 public class User {
 
     private Long id;
-    @NotBlank
-    private String firstName;
-    @NotBlank
-    private String lastName;
-    private String password;
-    @NotBlank
-    @UniqueUser
-    private String username;
-    @NotBlank
+    private String fullName;
     @UniqueEmail
     @Email
     private String email;
     private String points;
     private Role role;
 
-    public User(String firstName, String lastName, String username, String password, String email, Role role, String points) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.password = password;
+    public User(String fullName, String email, Role role, String points) {
+        this.fullName = fullName;
         this.email = email;
         this.role = role;
         this.points = points;
@@ -49,7 +33,7 @@ public class User {
 
     public String getPoints(){return points;}
 
-    public User setPoints(){
+    public User setPoints(String points){
         this.points = points;
         return this;
     }
@@ -63,41 +47,13 @@ public class User {
         return this;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public User setFirstName(String firstName) {
-        this.firstName = firstName;
-        return this;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public User setLastName(String lastName) {
-        this.lastName = lastName;
-        return this;
-    }
 
     public String getUsername() {
-        return username;
+        return fullName;
     }
 
-    public User setUsername(String username) {
-        this.username = username;
-        return this;
-    }
-
-    @JsonIgnore
-    public String getPassword() {
-        return password;
-    }
-
-    @JsonProperty
-    public User setPassword(String password) {
-        this.password = password;
+    public User setUsername(String fullName) {
+        this.fullName = fullName;
         return this;
     }
 
