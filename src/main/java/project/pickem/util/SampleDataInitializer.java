@@ -34,21 +34,15 @@ public class SampleDataInitializer implements ApplicationRunner {
 
         UserEntity user = new UserEntity(
                 "UserTest",
-                "Test",
-                "User",
-                "password",
                 "user@corkdork.se",
                 userRole,
-                123);
+                "123");
 
         UserEntity admin = new UserEntity(
                 "Test",
-                "Test",
-                "Admin",
-                "password",
                 "admin@corkdork.se",
                 adminRole,
-                123);
+                "123");
 
         this.roleRepository.saveAll(List.of(adminRole, userRole));
         this.userRepository.saveAll(List.of(admin, user));

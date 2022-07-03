@@ -51,7 +51,6 @@ public class UserService {
         UserEntity userEntity = modelMapper.map(user, UserEntity.class);
 
         userEntity.setId(id);
-        userEntity.setPassword(userEntity.getPassword());
 
         userRepository.save(userEntity);
     }
