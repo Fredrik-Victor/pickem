@@ -7,6 +7,5 @@ import java.util.Optional;
 
 public interface WeekRepository extends CrudRepository<WeekEntity, Long> {
 
-    @Override
-    Optional<WeekEntity> findById(Long id);
+    Optional<WeekEntity> findByWeekNumber(Long id);
 }

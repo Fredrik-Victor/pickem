@@ -5,8 +5,8 @@ import org.springframework.validation.annotation.Validated;
 import project.pickem.dto.User;
 import project.pickem.exception.BadRequestException;
 import project.pickem.exception.EntityNotFoundException;
-//import project.pickem.messaging.MessagePublisher;
 import project.pickem.service.UserService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,6 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-//    private final MessagePublisher messagePublisher;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -31,7 +30,6 @@ public class UserController {
         if (errors.hasErrors())
             throw new BadRequestException("Invalid input", errors);
         User createdUser = userService.createUser(user);
-//        messagePublisher.sendMessage(createdUser.getUsername());
 
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
