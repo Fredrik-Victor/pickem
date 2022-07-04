@@ -1,9 +1,9 @@
 package project.pickem.entity;
 
 
-import project.pickem.validator.UniqueEmail;
+
 import javax.persistence.*;
-import javax.validation.constraints.Email;
+
 
 @Entity
 public class UserEntity {
