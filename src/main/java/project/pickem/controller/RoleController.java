@@ -7,6 +7,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import project.pickem.dto.Role;
 
+import project.pickem.exception.BadRequestException;
 import project.pickem.exception.EntityNotFoundException;
 import project.pickem.service.RoleService;
 import java.util.List;
@@ -25,8 +26,8 @@ public class RoleController {
 
     @PostMapping("")
     public ResponseEntity<Role> createRole(@Validated @RequestBody Role role, BindingResult errors) {
-//        if (errors.hasErrors())
-//            throw new BadRequestException("Invalid input", errors);
+        if (errors.hasErrors())
+            throw new BadRequestException("Invalid input", errors);
 
         Role createdRole = roleService.createRole(role);
 
