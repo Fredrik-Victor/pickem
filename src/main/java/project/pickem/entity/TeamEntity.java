@@ -1,7 +1,5 @@
 package project.pickem.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
 @Entity

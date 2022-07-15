@@ -1,9 +1,7 @@
 package project.pickem.entity;
 
-
-import project.pickem.validator.UniqueEmail;
 import javax.persistence.*;
-import javax.validation.constraints.Email;
+import java.util.List;
 
 @Entity
 public class UserEntity {
@@ -18,6 +16,9 @@ public class UserEntity {
 
     @ManyToOne(fetch = FetchType.EAGER)
     RoleEntity role;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    List<GuessEntity> guess;
 
     public UserEntity() {
     }

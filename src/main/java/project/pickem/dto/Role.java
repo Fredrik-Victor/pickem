@@ -1,6 +1,7 @@
 package project.pickem.dto;
 
 public class Role {
+
     private Long id;
     private String role;
 
