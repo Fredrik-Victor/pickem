@@ -1,8 +1,7 @@
 package project.pickem.entity;
 
-import com.fasterxml.jackson.databind.deser.DataFormatReaders;
-
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class GuessEntity {
@@ -11,8 +10,8 @@ public class GuessEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne
-    private MatchupEntity matchupEntity;
+    @OneToMany
+    private List<MatchupEntity> matchupEntity;
 
     private String games;
     private String winner;
@@ -28,11 +27,11 @@ public class GuessEntity {
         return id;
     }
 
-    public MatchupEntity getMatchupEntity() {
+    public List<MatchupEntity> getMatchupEntity() {
         return matchupEntity;
     }
 
-    public void setMatchupEntity(MatchupEntity matchupEntity) {
+    public void setMatchupEntity(List<MatchupEntity> matchupEntity) {
         this.matchupEntity = matchupEntity;
     }
 
